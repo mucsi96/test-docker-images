@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-test-docker-image:
+  publish_images:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -23,4 +23,4 @@ jobs:
           python-version: 3.12
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python scripts/build_test_docker_image.py ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ANSIBLE_VAULT_KEY }}
+      - run: python scripts/publish_images.py ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ANSIBLE_VAULT_KEY }}
