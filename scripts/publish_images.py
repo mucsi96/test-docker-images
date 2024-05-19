@@ -21,7 +21,7 @@ version= version_utils.get_version(
 docker_utils.build_and_push_docker_img(
     src=root_directory / 'hello_client',
     version=version,
-    tag_prefix="server",
+    tag_prefix="hello-client",
     image_name="hello-client",
     docker_username=username,
     docker_password=secrets['docker_password'],
