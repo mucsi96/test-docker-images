@@ -1,10 +1,26 @@
-@if ($loading | async) {
-<div app-loader></div>
-} @else {
-<header app-header>
-  <user-info></user-info>
+<header bt>
+  <nav>
+    <a href="/" bt-logo>Authtools test</a>
+    <ul>
+      <li><a href="/" bt-active>Home</a></li>
+      @if(hasRole('Writer')) {
+      <li><a href="/admin">Admin</a></li>
+      }
+      <li><a href="https://web.auth-tools.home">About</a></li>
+    </ul>
+    <section bt-user-info></section>
+    <button bt-navbar-toggler popovertarget="navbar-popover"></button>
+    <div popover bt id="navbar-popover">
+      <ul bt-dropdown-menu>
+        <li><a href="/" bt-active>Home</a></li>
+        @if(hasRole('Writer')) {
+        <li><a href="/admin">Admin</a></li>
+        }
+        <li><a href="https://web.auth-tools.home">About</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
-<main app-main>
+<main bt>
   <router-outlet></router-outlet>
 </main>
-}

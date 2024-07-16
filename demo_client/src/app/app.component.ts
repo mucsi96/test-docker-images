@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { loading } from './utils/loading';
-import { init } from '@mucsi96/auth-tools';
+import { Component } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { hasRole, init } from '@mucsi96/auth-tools';
+import { RouterTokens } from './app.routes';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,16 @@ import { init } from '@mucsi96/auth-tools';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor() {
+  hasRole = hasRole;
+
+  constructor(router: Router) {
     init({
       namespace: 'demo',
-      navigateToSignin: () => {},
+      navigateToSignin: () => router.navigate([RouterTokens.SIGNIN]),
       postAuthorizationRedirectUri: '/',
       scopes: ['openid', 'profile', 'email'],
-      tokenAgent: 'https://auth.auth-tools.home'
+      tokenAgent: 'http://localhost:3000/auth/authorize',
+      mockUserInfo: environment.mockUserInfo,
     });
   }
-
-  $loading = this.authService.isSignedIn().pipe(loading());
 }

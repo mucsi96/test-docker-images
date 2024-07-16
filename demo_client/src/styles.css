@@ -5,5 +5,7 @@ body {
 }
 
 body {
-  background-color: hsl(222, 47%, 11%);
+  background-color: var(--bt-background-color);
+  color: var(--bt-text-color);
+  font-family: var(--bt-font-family);
 }

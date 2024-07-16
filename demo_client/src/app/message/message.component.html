@@ -1,5 +1,5 @@
 @if($loading | async) {
-<div app-loader></div>
+<div role="progressbar" bt></div>
 } @else {
-<h1 app-heading>{{ ($message | async)?.message }}</h1>
+<h1 bt>{{ ($message | async)?.message }}</h1>
 }

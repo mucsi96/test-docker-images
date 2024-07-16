@@ -1577,10 +1577,10 @@
     outvariant "^1.2.1"
     strict-event-emitter "^0.5.1"
 
-"@mucsi96/auth-tools@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@mucsi96/auth-tools/-/auth-tools-1.0.0.tgz#40100731378e1326ee390a47bed5a8359251fbbd"
-  integrity sha512-GYm8x+rPi1KrS3pNMMJVIGhVx9sh+KWIWqFGT9TNT5X+ThSLbZ3uu9nfDuN1aKN83JBK3UTDus/ub3gTwr/P6g==
+"@mucsi96/auth-tools@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@mucsi96/auth-tools/-/auth-tools-5.0.0.tgz#0473671dedb07ddb82198b87d6f64a88b3e0c606"
+  integrity sha512-TML79BQywjAeycLDjJLfZD2D7ZGloxsdxkwsupsa/pYA8DxqvoksyougDcOBYXTMpixwNfzv3S8h7iaNBlOYXw==
   dependencies:
     "@mucsi96/ui-elements" "^46.0.0"
     jwt-decode "^4.0.0"

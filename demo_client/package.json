@@ -23,7 +23,7 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2",
     "@mucsi96/ui-elements": "^49.0.0",
-    "@mucsi96/auth-tools": "^1.0.0"
+    "@mucsi96/auth-tools": "^5.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.0",
