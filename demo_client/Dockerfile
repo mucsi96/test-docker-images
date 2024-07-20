@@ -12,4 +12,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-deps /usr/src/app/dist/browser /usr/share/nginx/html
 
 EXPOSE 80
+
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

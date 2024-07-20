@@ -21,7 +21,7 @@ export class AppComponent {
       navigateToSignin: () => router.navigate([RouterTokens.SIGNIN]),
       postAuthorizationRedirectUri: '/',
       scopes: ['openid', 'profile', 'email'],
-      tokenAgent: 'http://localhost:3000/auth/authorize',
+      tokenAgent: environment.tokenAgent,
       mockUserInfo: environment.mockUserInfo,
     });
   }
