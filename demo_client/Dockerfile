@@ -9,6 +9,7 @@ FROM nginx:1.21-alpine
 VOLUME /var/cache/nginx
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY entrypoint.sh /entrypoint.sh
 COPY --from=build-deps /usr/src/app/dist/browser /usr/share/nginx/html
 
 EXPOSE 80
