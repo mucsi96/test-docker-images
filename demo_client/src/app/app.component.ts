@@ -20,8 +20,8 @@ export class AppComponent {
       namespace: 'demo',
       navigateToSignin: () => router.navigate([RouterTokens.SIGNIN]),
       postAuthorizationRedirectUri: '/',
-      scopes: ['openid', 'profile', 'email'],
-      tokenAgent: environment.tokenAgent,
+      scopes: environment.authScopes,
+      tokenAgent: environment.authTokenAgent,
       mockUserInfo: environment.mockUserInfo,
     });
   }
