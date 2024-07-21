@@ -3,7 +3,7 @@ import '../mocks/browser';
 
 export const environment = {
   authTokenAgent: 'http://localhost:3000/auth/authorize',
-  authScopes: ['openid', 'profile', 'email'],
+  apiClientId: '001test',
   mockUserInfo: {
     userName: 'Robert White',
     email: 'robert.white@mockemail.com',

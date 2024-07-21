@@ -4,7 +4,7 @@ declare global {
   interface Window {
     __env: {
       authTokenAgent: string;
-      authScopes: string[];
+      apiClientId: string;
     };
   }
 }
@@ -12,8 +12,8 @@ declare global {
 export const environment: {
   mockUserInfo?: UserInfo;
   authTokenAgent: string;
-  authScopes: string[];
+  apiClientId: string;
 } = {
   authTokenAgent: window.__env.authTokenAgent,
-  authScopes: window.__env.authScopes,
+  apiClientId: window.__env.apiClientId,
 };
