@@ -1,4 +1,4 @@
-FROM maven:3-eclipse-temurin-22 as build
+FROM maven:3-eclipse-temurin-22 AS build
 
 WORKDIR /workspace/app
 
