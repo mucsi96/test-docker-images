@@ -15,7 +15,7 @@ RUN apk --no-cache add bash curl
 
 VOLUME /tmp
 
-ARG DEPENDENCY=/workspace/target/dependency
+ARG DEPENDENCY=/workspace/app/target/dependency
 
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
