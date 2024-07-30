@@ -16,6 +16,7 @@ if username == None:
 for package in [
     {"tag-prefix": "hello-client", "src": root_directory / "hello_client"},
     {"tag-prefix": "demo-client", "src": root_directory / "demo_client"},
+    {"tag-prefix": "demo-server", "src": root_directory / "demo_server"},
 ]:
     version = version_utils.get_version(
         src=package["src"], tag_prefix=package["tag-prefix"]
