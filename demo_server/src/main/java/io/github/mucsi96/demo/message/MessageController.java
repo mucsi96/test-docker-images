@@ -4,31 +4,23 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.mucsi96.authtools.azure.AzureAuthenticationPrincipal;
 import io.swagger.v3.oas.annotations.Parameter;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-public class UserController {
+@RequiredArgsConstructor
+public class MessageController {
+    private final MessageRepository messageRepository;
 
     @PreAuthorize("hasAuthority('ROLE_Reader') and hasAuthority('SCOPE_read')")
-    @GetMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserResponse getUser(
+    @GetMapping(value = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
+    public MessageResponse getMessage(
             @Parameter(hidden = true) Authentication authentication) {
         AzureAuthenticationPrincipal principal = (AzureAuthenticationPrincipal) authentication.getPrincipal();
-        return UserResponse.builder()
-                .id(authentication.getName())
-                .name(principal.getName())
-                .email(principal.getEmail())
-                .authorities(authentication.getAuthorities().stream().map(a -> a.getAuthority()).toList())
-                .build();
-    }
-
-    @PreAuthorize("hasAuthority('ROLE_Writer') and hasAuthority('SCOPE_write')")
-    @PostMapping(value = "/change", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String change() {
-        return "{}";
+        return new MessageResponse(
+                "Hi " + principal.getName() + "! " + messageRepository.findAll().get(0).getContent());
     }
 }

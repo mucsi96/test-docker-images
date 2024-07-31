@@ -48,6 +48,26 @@
         "cwd": "${workspaceFolder}/demo_client"
       },
       "problemMatcher": {}
+    },
+    {
+      "type": "shell",
+      "command": "mvn spring-boot:run --activate-profiles local",
+      "label": "start demo server",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/demo_server"
+      },
+      "problemMatcher": {}
+    },
+    {
+      "type": "shell",
+      "command": "mvn test",
+      "label": "test demo server",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/demo_server"
+      },
+      "problemMatcher": {}
     }
   ]
 }
