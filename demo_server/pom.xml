@@ -107,6 +107,12 @@
 	<profiles>
 		<profile>
 			<id>local</id>
+			<!-- This is needed for VSCode to run the application -->
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
 			<dependencies>
 				<dependency>
 					<groupId>com.h2database</groupId>
