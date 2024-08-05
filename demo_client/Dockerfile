@@ -5,7 +5,7 @@ RUN yarn
 COPY . ./
 RUN yarn build
 
-FROM nginx:1.21-alpine
+FROM nginx:1.27-alpine
 VOLUME /var/cache/nginx
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
