@@ -37,7 +37,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "msw": "^2.0.9",
-    "typescript": "~5.5.0"
+    "typescript": "~5.4.5"
   },
   "msw": {
     "workerDirectory": "src"
