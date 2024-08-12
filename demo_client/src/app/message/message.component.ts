@@ -1,8 +1,6 @@
 import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { Message, MessageService } from './message.service';
-import { loading } from '../utils/loading';
-import { Observable } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -12,11 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./message.component.css'],
 })
 export class MessageComponent {
-  $message: Observable<Message>;
-  $loading: Observable<boolean>;
+  message: Signal<Message | undefined>;
+  loading: Signal<boolean>;
   
   constructor(private readonly messageService: MessageService) {
-    this.$message = this.messageService.getMessage();
-    this.$loading = this.$message.pipe(loading());
+    this.message = this.messageService.getMessage();
+    this.loading = this.messageService.isMessageLoading();
   }
 }

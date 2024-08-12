@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Observable, shareReplay } from 'rxjs';
+import { toLoadingSignal } from '../utils/loading';
 
 export type Message = {
   message: string;
@@ -8,9 +10,19 @@ export type Message = {
 
 @Injectable()
 export class MessageService {
-  constructor(private readonly http: HttpClient) {}
+  $messages: Observable<Message>;
 
-  getMessage(): Observable<Message> {
-    return this.http.get<Message>('/api/message').pipe(shareReplay(1));
+  constructor(private readonly http: HttpClient) {
+    this.$messages = this.http
+      .get<Message>('/api/message')
+      .pipe(shareReplay(1));
+  }
+
+  getMessage(): Signal<Message | undefined> {
+    return toSignal(this.$messages);
+  }
+
+  isMessageLoading(): Signal<boolean> {
+    return toLoadingSignal(this.$messages);
   }
 }
