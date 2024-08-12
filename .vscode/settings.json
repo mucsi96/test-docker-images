@@ -1,5 +1,6 @@
 {
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "basic",
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.compile.nullAnalysis.mode": "automatic"
 }

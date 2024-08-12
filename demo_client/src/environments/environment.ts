@@ -17,3 +17,5 @@ export const environment: {
   authTokenAgent: window.__env.authTokenAgent,
   apiClientId: window.__env.apiClientId,
 };
+
+export async function bootstrapEnvironment() {}

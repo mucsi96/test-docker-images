@@ -11,3 +11,8 @@ export const environment = {
     roles: ['Reader', 'Writer'],
   } satisfies UserInfo,
 };
+
+export async function bootstrapEnvironment() {
+  const { setupMocks } = await import('../mocks/browser');
+  await setupMocks();
+}
