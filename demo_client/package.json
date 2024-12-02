@@ -34,7 +34,7 @@
     "jasmine-core": "~5.4.0",
     "msw": "^2.0.9",
     "playwright": "^1.46.0",
-    "typescript": "~5.6.0"
+    "typescript": "~5.7.0"
   },
   "msw": {
     "workerDirectory": "public"
